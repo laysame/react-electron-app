@@ -1,0 +1,15 @@
+.btn {
+    background-color: #6200c5 !important;
+    border: #6200c5 !important;
+    margin-top: 10px;
+    color:#ffff;
+}
+
+.btn:hover{
+    background-color: #7c00ff !important;
+    border: #7c00ff !important;
+}
+
+::placeholder, .form-text {
+    font-size: 0.8rem !important;
+}
