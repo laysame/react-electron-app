@@ -1,37 +1,20 @@
 import './App.css';
 import {ResultComponent} from "./components/results/ResultComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {useEffect, useState} from "react";
-import {createTheme, ThemeProvider} from "@mui/material";
+import SunIcon from "./components/icons/SunIcon";
+import MoonIcon from "./components/icons/MoonIcon";
+import Switch from "./components/switch/Switch.js";
 
 function App() {
 
-  /*  const [isDarkMode, setIsDarkMode] = useState(false);
-    const toggleTheme = () => {
-        setIsDarkMode((previousMode) => !previousMode);
-    };
-    const theme = createTheme({
-        palette: {
-            mode: isDarkMode ? 'Dark' : 'light',
-        },
-    });
-
-    useEffect(() => {
-        const storedDarkMode = localStorage.getItem('isDarkMode');
-        if (storedDarkMode !== null) {
-            setIsDarkMode(JSON.parse(storedDarkMode));
-        }
-    }, []);*/
-
     return (
-        //<ThemeProvider theme={theme}>
-            <div className="App">
-                <div className="header">
+            <div className="App m-4">
+                <div className="mt-5">
                     <img src={"./logo.png"} alt="logo"/>
                 </div>
                 <div className="intro-info">
                     <h1>HAVS Calculator</h1>
-                    <p className="pt-2">Are you wondering how to calculate vibration exposure, for one tool or multiple
+                    <p className="m-4">Are you wondering how to calculate vibration exposure, for one tool or multiple
                         tools, and stay
                         within the legal
                         limits? Enter your tools and times below to find out. The HAVS calculator will tell you if you are
@@ -39,8 +22,10 @@ function App() {
                         the exposure action value, and how close you are to the limit.</p>
                 </div>
                 <ResultComponent/>
+                <SunIcon/>
+                <Switch />
+                <MoonIcon />
             </div>
-       // </ThemeProvider>
     );
 }
 

@@ -3,25 +3,17 @@
     text-align: center;
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
+    background-color: #fff;
 }
 
-.header {
-    height: 30px;
-}
-
-.header > img {
+img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 180px;
-}
-
-.intro-info {
-    padding: 20px;
-    margin: 2px;
+    width: 200px;
+    max-width: 150px;
 }
 
 .intro-info > h1 {
     color: #6200c5;
 }
-
