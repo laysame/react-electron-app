@@ -13,9 +13,17 @@ const createWindow = () => {
         }
     })
 
+    const secondaryWindow = new BrowserWindow({
+        width: 1024, // Set the width of the second window
+        height: 768, // Set the height of the second window
+    });
+
     // and load the localhost
-    mainWindow.loadURL('http://localhost:3000')
+    //mainWindow.loadURL('http://localhost:3000')
+    secondaryWindow.loadURL('http://localhost:3000')
 }
+
+
 
 function showNotification() {
     new Notification({ title: 'Welcome to HAVS Calculator', body: 'Enter your tools and times below to find out the vibration exposure' }).show()
