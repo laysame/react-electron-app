@@ -1,29 +1,32 @@
 // main.js
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, Notification } = require('electron')
+const {app, BrowserWindow, Notification, screen } = require('electron')
 const {join} = require("path");
 
 const createWindow = () => {
     // Create the browser window.
-    const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            enableRemoteModule: true,
-        }
+    let mainWindow = null;
+    const { screen } = require('electron')
+
+    const displays = screen.getAllDisplays()
+    const externalDisplay = displays.find((display) => {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
     })
+    if (externalDisplay) {
+        mainWindow = new BrowserWindow({
+            x: externalDisplay.bounds.x + 50,
+            y: externalDisplay.bounds.y + 50
+        })
+        mainWindow.loadURL('http://localhost:3000')
+    }
 
-    const secondaryWindow = new BrowserWindow({
-        width: 1024, // Set the width of the second window
-        height: 768, // Set the height of the second window
-    });
+    // Create a window that fills the screen's available work area.
+    const primaryDisplay = screen.getPrimaryDisplay()
+    const { width, height } = primaryDisplay.workAreaSize
 
-    // and load the localhost
-    //mainWindow.loadURL('http://localhost:3000')
-    secondaryWindow.loadURL('http://localhost:3000')
+    mainWindow = new BrowserWindow({ width, height})
+    mainWindow.loadURL('http://localhost:3000')
 }
-
-
 
 function showNotification() {
     new Notification({ title: 'Welcome to HAVS Calculator', body: 'Enter your tools and times below to find out the vibration exposure' }).show()
@@ -44,6 +47,5 @@ app.on('activate', () => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-
     if (process.platform !== 'darwin') app.quit()
 })
