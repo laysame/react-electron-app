@@ -18,27 +18,24 @@ const StyledApp = styled.div`
   text-align: center;
   font-family: 'Roboto Mono', monospace;
   font-size: 14px;
-  background-color: #ffff ;
+  background-color: #ffff;
 `
 const AppName = styled.h1`
   color: ${(props) => props.theme.title}
 `
+
 function App() {
 
     return (
         <ThemeProvider theme={lightTheme}>
             <StyledApp className="App m-4">
-                <div className="mt-5">
+                <div className="">
                     <div className="row">
-                        <div className="col">
-                            <img src={"./logo.png"} alt="logo"/>
-                        </div>
-                        <div className="col-2">
-                            <Switch/>
-                        </div>
+                        <div className="col"><img src={"./logo.png"} alt="logo"/></div>
+                        <div className="col-2"><Switch/></div>
                     </div>
                 </div>
-                <div className="intro-info">
+                <div className="intro-info mt-0">
                     <AppName color={"#6200c5"}>HAVS Calculator</AppName>
                     <p className="m-4">Are you wondering how to calculate vibration exposure, for one tool and stay
                         within the legal limits?
