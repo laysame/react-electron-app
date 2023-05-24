@@ -59,7 +59,8 @@ export const ResultComponent = () => {
             <Card className="m-4">
                 <InputComponent handleInputChange={handleInputChange}/>
                 <div className="display-component">
-                    <Button className="p-2 mb-3" onClick={handleButtonClick} disabled={!isButtonEnabled}>Calculate</Button>
+                    <Button className="p-2 mb-3" onClick={handleButtonClick}
+                            disabled={!isButtonEnabled}>Calculate</Button>
                 </div>
             </Card>
             <Card className="m-4">
